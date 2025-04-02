@@ -1,0 +1,4 @@
+repository "Asterioids_Otigo@Otigo@cloud"
+  path "/"
+    br "/main"
+    co "/main"
