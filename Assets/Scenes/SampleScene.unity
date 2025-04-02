@@ -327,6 +327,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3795190647626048198, guid: 8b61b144a744ef144a828418dade4bfa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1333619031}
+    - targetCorrespondingSourceObject: {fileID: 3795190647626048198, guid: 8b61b144a744ef144a828418dade4bfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1333619036}
   m_SourcePrefab: {fileID: 100100000, guid: 8b61b144a744ef144a828418dade4bfa, type: 3}
 --- !u!1 &428740727
 GameObject:
@@ -360,8 +363,6 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 1333619026}
   spawnInterval: 2
   spawnRadius: 10
-  asteroidHP: 3
-  asteroidMaxHP: 0
 --- !u!4 &428740729
 Transform:
   m_ObjectHideFlags: 0
@@ -908,6 +909,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f1a7b1569c56aa42a13884a625f9ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1333619036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333619026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5fc93f0a6f4beebe881912fbd2229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1808307477

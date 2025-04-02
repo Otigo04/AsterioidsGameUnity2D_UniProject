@@ -5,7 +5,8 @@ using UnityEngine;
 public class AsteroidDestroyer : MonoBehaviour
 {
     void OnBecameInvisible()
-    {
-        Destroy(gameObject, 3f); // Destroy nach 20 Sekunden
-    }
+{
+    Destroy(gameObject);
+}
+
 }
