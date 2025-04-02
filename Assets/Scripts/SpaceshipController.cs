@@ -18,6 +18,10 @@ public class SpaceshipController : MonoBehaviour
     public int maxHP = 3;
     private int currentHP;
 
+    //CANSHOOT
+    public float shootCooldown = 0.2f;
+    public bool canShoot = true;
+
     
 
     // Start is called before the first frame update
@@ -38,9 +42,12 @@ public class SpaceshipController : MonoBehaviour
             rb.AddForce(force);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot) {
+        
             FireBullet(leftGun);
             FireBullet(rightGun);
+            StartCoroutine(ShootCooldown());
+
         }
 
         hptext.text = "Raumschiff HP: " + currentHP.ToString();
@@ -69,5 +76,11 @@ public class SpaceshipController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = firePoint.up * bulletSpeed;
+    }
+
+    IEnumerator ShootCooldown() {
+        canShoot = false;
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
     }
 }
