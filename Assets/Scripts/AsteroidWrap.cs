@@ -2,9 +2,18 @@ using UnityEngine;
 
 public class AsteroidWrap : MonoBehaviour
 {
+    private float wrapDelay = 3f;
+    private float spawnTime;
+
+    void Start()
+    {
+        spawnTime = Time.time;
+    }
+
     void FixedUpdate()
     {
-        if (!gameObject) return;
+        if (Time.time - spawnTime < wrapDelay) return; // noch zu früh, nicht wrappen
+
         Vector3 pos = transform.position;
         Vector3 viewportPos = Camera.main.WorldToViewportPoint(pos);
 
@@ -15,7 +24,5 @@ public class AsteroidWrap : MonoBehaviour
         else if (viewportPos.y < 0) pos.y = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
 
         transform.position = pos;
-
-        if(this == null) return;
     }
 }
