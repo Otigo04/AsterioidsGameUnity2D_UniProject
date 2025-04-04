@@ -6,6 +6,7 @@ public class _Gamemanager : MonoBehaviour
     // ASTEROID HP
     public int maxSmallAsteroidHealth = 2;
     public int maxBigAsteroidHealth = 6;
+    public int maxCrystalAsteroidHealth = 5;
     // ASTEROID HP
     
     //BACKGROUNDSELECTER

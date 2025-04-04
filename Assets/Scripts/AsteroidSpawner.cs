@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +5,9 @@ using UnityEngine;
 public class AsteroidType
 {
     public GameObject prefab;
-    public float spawnChance;
+    [Range(0, 100)] public float spawnChancePercent;
     public int scoreValue;
+    public int asteroidHealth;
 }
 
 public class AsteroidSpawner : MonoBehaviour
@@ -26,52 +26,57 @@ public class AsteroidSpawner : MonoBehaviour
     {
         Vector2 spawnPos = GetRandomEdgePosition();
 
-        GameObject prefab = GetRandomAsteroidPrefab(out int scoreValue);
-
-        if (prefab == null)
+        AsteroidType selectedType = GetRandomAsteroidType();
+        if (selectedType == null)
         {
-            Debug.LogWarning("Kein Asteroiden-Prefab ausgewählt!");
+            Debug.LogWarning("Kein Asteroiden-Typ gefunden! Bitte überprüfe die Wahrscheinlichkeiten.");
             return;
         }
 
-        GameObject asteroid = Instantiate(prefab, spawnPos, Quaternion.identity);
+        GameObject asteroid = Instantiate(selectedType.prefab, spawnPos, Quaternion.identity);
 
         Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
         Vector2 direction = Random.insideUnitCircle.normalized;
         float speed = Random.Range(speedRange.x, speedRange.y);
         rb.velocity = direction * speed;
 
-        // Score im Asteroid setzen
         AsteroidBehavior behavior = asteroid.GetComponent<AsteroidBehavior>();
         if (behavior != null)
         {
-            behavior.scoreOnDeath = scoreValue;
+            behavior.Initialize(selectedType.asteroidHealth, selectedType.scoreValue);
         }
     }
 
-    GameObject GetRandomAsteroidPrefab(out int score)
+    AsteroidType GetRandomAsteroidType()
     {
-        float totalChance = 0f;
+        float total = 0f;
+
+        // Sicherheitsprüfung: Gesamtwert berechnen
         foreach (var type in asteroidTypes)
         {
-            totalChance += type.spawnChance;
+            total += type.spawnChancePercent;
         }
 
-        float randomValue = Random.Range(0, totalChance);
+        if (total <= 0f)
+        {
+            Debug.LogWarning("Spawn Wahrscheinlichkeiten ergeben 0%! Bitte anpassen.");
+            return null;
+        }
+
+        float randomPoint = Random.Range(0f, total);
         float cumulative = 0f;
 
         foreach (var type in asteroidTypes)
         {
-            cumulative += type.spawnChance;
-            if (randomValue <= cumulative)
+            cumulative += type.spawnChancePercent;
+            if (randomPoint <= cumulative)
             {
-                score = type.scoreValue;
-                return type.prefab;
+                return type;
             }
         }
 
-        score = 0;
-        return null;
+        // Sicherheit, falls floating point Ungenauigkeit
+        return asteroidTypes[asteroidTypes.Count - 1];
     }
 
     Vector2 GetRandomEdgePosition()
@@ -83,10 +88,10 @@ public class AsteroidSpawner : MonoBehaviour
 
         switch (edge)
         {
-            case 0: screenY = 1.1f; break; // oben
-            case 1: screenY = -0.1f; break; // unten
-            case 2: screenX = -0.1f; break; // links
-            case 3: screenX = 1.1f; break; // rechts
+            case 0: screenY = 1.2f; break; // oben
+            case 1: screenY = -0.2f; break; // unten
+            case 2: screenX = -0.2f; break; // links
+            case 3: screenX = 1.2f; break; // rechts
         }
 
         Vector3 worldPos = cam.ViewportToWorldPoint(new Vector3(screenX, screenY, 0));
