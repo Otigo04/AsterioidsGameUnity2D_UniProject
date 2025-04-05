@@ -20,7 +20,6 @@ public class _Gamemanager : MonoBehaviour
     void Start()
     {
 
-
     }
 
     private void Awake()

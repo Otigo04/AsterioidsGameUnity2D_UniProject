@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SmallExplosion : MonoBehaviour
 {
+    public float deletePrefabDelay = 0f;
     void Start()
     {
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, deletePrefabDelay);
     } 
 }

@@ -14,10 +14,6 @@ public class SpaceshipController : MonoBehaviour
     public float bulletSpeed = 10f;
     public TextMeshProUGUI hptext;
 
-    // HEALTH
-    public int maxHP = 3;
-    private int currentHP;
-
     //CANSHOOT
     public float shootCooldown = 0.2f;
     public bool canShoot = true;
@@ -28,7 +24,6 @@ public class SpaceshipController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();    
-        currentHP = maxHP;
     }
 
     // Update is called once per framee
@@ -49,8 +44,6 @@ public class SpaceshipController : MonoBehaviour
             StartCoroutine(ShootCooldown());
 
         }
-
-        hptext.text = "Raumschiff HP: " + currentHP.ToString();
 
     }
 

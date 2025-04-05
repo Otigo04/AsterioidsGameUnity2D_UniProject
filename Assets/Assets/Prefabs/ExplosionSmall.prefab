@@ -97,3 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea73c1d44f4c2ed46ba3dfb2ba5fc96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deletePrefabDelay: 0.1
