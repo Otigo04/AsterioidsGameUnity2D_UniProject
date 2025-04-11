@@ -3,7 +3,6 @@ using UnityEngine;
 public class AsteroidBehavior : MonoBehaviour
 {
     public bool isSmall = false; // Optional: Inspector
-    public bool isCrystal = false;
     public GameObject smallAsteroidPrefab;
 
     public GameObject hitEffectPrefab;
