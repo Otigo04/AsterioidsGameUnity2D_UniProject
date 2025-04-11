@@ -3,7 +3,9 @@ using UnityEngine;
 public class AsteroidBehavior : MonoBehaviour
 {
     public bool isSmall = false; // Optional: Inspector
+    public bool isCrystal = false;
     public GameObject smallAsteroidPrefab;
+
     public GameObject hitEffectPrefab;
     public int scoreOnDeath = 100;
 
@@ -64,14 +66,15 @@ public class AsteroidBehavior : MonoBehaviour
 
     void SpawnSmalls()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject small = Instantiate(smallAsteroidPrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = small.GetComponent<Rigidbody2D>();
             Vector2 dir = Random.insideUnitCircle.normalized;
             rb.velocity = dir * Random.Range(2f, 3.5f);
 
-            // 🔥 Nicht vergessen: Kleine Asteroiden auch initialisieren!
+            
+
             AsteroidBehavior behavior = small.GetComponent<AsteroidBehavior>();
             if (behavior != null)
             {
