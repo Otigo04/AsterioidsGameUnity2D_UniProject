@@ -1586,7 +1586,7 @@ MonoBehaviour:
   fireRate: 0.75
   explosionPrefab: {fileID: 5112995339148656388, guid: 4336977bb86c0f24d8fa55bc967c8b12, type: 3}
   deathPrefab: {fileID: 8002138247692258719, guid: 35c23bf60d9f7c14f80e74d3fc23fc9d, type: 3}
-  health: 3
+  health: 7
 --- !u!70 &1600965301
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1795,71 +1795,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738255507}
   m_CullTransparentMesh: 1
---- !u!1001 &1800894807
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.283119
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.7362213
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.30817217
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826920458729158389, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574540709519655779, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
-      propertyPath: m_Name
-      value: Salt_Asteroid
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d77faa4a6c0a4bb586e48c588145499, type: 3}
 --- !u!1 &1808307477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,4 +2231,3 @@ SceneRoots:
   - {fileID: 5467264438227665275}
   - {fileID: 2049712851}
   - {fileID: 1470481148}
-  - {fileID: 1800894807}
